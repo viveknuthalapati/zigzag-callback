@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>ZigZag OAuth Complete</title>
-    <script>
-      // Grab the full query string (e.g. "?code=…&state=…")
-      const qs = window.location.search;
-      // Redirect into your app via the custom scheme
-      window.location.replace('zigzag://oauth2redirect' + qs);
-    </script>
-  </head>
-  <body>
-    <h1>ZigZag Auth Complete</h1>
-    <p>If you’re not automatically returned, <a id="fallback" href="#">click here</a>.</p>
-    <script>
-      // Fallback link in case auto-redirect is blocked
-      document.getElementById('fallback')
-        .setAttribute('href', 'zigzag://oauth2redirect' + window.location.search);
-    </script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tesla OAuth Redirect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;background:#fafafa;color:#333}
+    #msg {text-align:center}
+  </style>
+</head>
+<body>
+  <div id="msg">
+    <h2>Redirecting to ZigZag App…</h2>
+    <p>If nothing happens, you can safely close this tab.</p>
+  </div>
+
+  <script>
+    (function () {
+      // Preserve both query string and hash (code, state, etc.)
+      const query = window.location.search || '';
+      const hash  = window.location.hash   || '';
+      const deepLink = 'zigzag://oauth2redirect/callback' + query + hash;
+
+      // Redirect immediately
+      window.location.replace(deepLink);
+    })();
+  </script>
+</body>
 </html>
