@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.zigzag",
+      "sha256_cert_fingerprints": [
+        "69:6D:5B:32:99:62:B8:D1:7F:97:99:54:B3:DC:A0:C6:01:C7:DB:FB:E7:2A:AE:88:B0:A9:92:0F:0C:0D:5A:19"
+      ]
+    }
+  }
+]
